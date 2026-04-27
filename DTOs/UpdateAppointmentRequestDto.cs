@@ -1,4 +1,5 @@
 namespace apbd_cw7_task.DTOs;
+using System.ComponentModel.DataAnnotations;
 
 public class UpdateAppointmentRequestDto
 {
@@ -6,6 +7,9 @@ public class UpdateAppointmentRequestDto
     public int IdDoctor { get; set; }
     public DateTime AppointmentDate  { get; set; }
     public string Status { get; set; } = string.Empty;
+    
+    [Required(ErrorMessage = "Opis jest wymagany")]
+    [MaxLength(250, ErrorMessage = "Opis musi byc < 250 znakow")]
     public string Reason { get; set; } = string.Empty;
     public string? InternalNotes { get; set; } 
 }
